@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GMFriend
+namespace GMFriend.UI.Main
 {
     /// <summary>
     /// Interaktionslogik für MainWindow.xaml
