@@ -7,12 +7,12 @@
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800" MinHeight="500" MinWidth="700">
     <Grid>
-        <TabControl TabStripPlacement="Left">
-            <TabItem Header="Notes">
-            </TabItem>
-            <TabItem Header="Music">
-                <UserControl Name="MusicTab" />
-            </TabItem>
+        <TabControl x:Name="Items">
+            <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding DisplayName}" />
+                </DataTemplate>
+            </TabControl.ItemTemplate>
         </TabControl>
     </Grid>
 </UserControl>
