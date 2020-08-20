@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GMFriend.UI.Main
+namespace GMFriend.UserInterface.Shell
 {
     /// <summary>
-    /// Interaktionslogik für MainWindow.xaml
+    /// Interaktionslogik für ShellView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ShellView : UserControl
     {
-        public MainWindow()
+        public ShellView()
         {
             InitializeComponent();
         }

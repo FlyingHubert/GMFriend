@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GMFriend.UI.Main
+namespace GMFriend.UserInterface.Tabs.Music
 {
-    public class MainWindowViewModel
+    public class MusicViewModel
     {
         
     }

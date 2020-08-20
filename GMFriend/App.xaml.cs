@@ -1,6 +1,4 @@
-﻿using GMFriend.UI.Main;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -18,11 +16,6 @@ namespace GMFriend
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-
-            MainWindow = new MainWindow()
-            {
-                DataContext = new MainWindowViewModel()
-            };
 
             MainWindow.Show();
         }
