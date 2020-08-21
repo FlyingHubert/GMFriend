@@ -4,9 +4,36 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:GMFriend.UserInterface.Tabs.Music"
+             xmlns:gong="urn:gong-wpf-dragdrop"
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Label Content="HAHAHAHA" HorizontalAlignment="Center"  VerticalAlignment="Center" FontSize="50"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+
+        <TextBox x:Name="MusicSearch"  Grid.Row="0" Grid.Column="0" />
+        <ListBox x:Name="AvaiableEntries" Grid.Row="1" Grid.Column="0"
+                 ItemsSource="{Binding AvailableMusic}"
+                 gong:DragDrop.IsDragSource="True">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Title}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button x:Name="AddNewMusic" Grid.Row="2" Grid.Column="0"
+                Content="Hinzufügen..." />
+
+        <ListView x:Name="PlayableMusic" Grid.Row="0" Grid.Column="1" Grid.RowSpan="3"
+                  gong:DragDrop.IsDropTarget="True"
+                  gong:DragDrop.DropHandler="{Binding}">
+        </ListView>
     </Grid>
 </UserControl>

@@ -1,9 +1,6 @@
-﻿using DataAccess;
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -16,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GMFriend.UserInterface.Tabs.Music
+namespace GMFriend.UserInterface.Dialogs.AddMusic
 {
     /// <summary>
-    /// Interaktionslogik für MusicView.xaml
+    /// Interaktionslogik für AddMusicView.xaml
     /// </summary>
-    public partial class MusicView : UserControl
+    public partial class AddMusicView : UserControl
     {
-        public MusicView()
+        public AddMusicView()
         {
             InitializeComponent();
         }

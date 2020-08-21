@@ -58,6 +58,10 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="DependencyInjection\DI.cs" />
     <Compile Include="DependencyInjection\ModuleBindings.cs" />
+    <Compile Include="UserInterface\Dialogs\AddMusic\AddMusicView.xaml.cs">
+      <DependentUpon>AddMusicView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\Dialogs\AddMusic\AddMusicViewModel.cs" />
     <Compile Include="UserInterface\Shell\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
     </Compile>
@@ -66,6 +70,10 @@
       <DependentUpon>MusicView.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserInterface\Tabs\Music\MusicViewModel.cs" />
+    <Compile Include="UserInterface\Tabs\Music\PlayerView.xaml.cs">
+      <DependentUpon>PlayerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\Tabs\Music\PlayerViewModel.cs" />
     <Page Include="Styles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -74,11 +82,19 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UserInterface\Dialogs\AddMusic\AddMusicView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserInterface\Shell\ShellView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserInterface\Tabs\Music\MusicView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\Tabs\Music\PlayerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -113,6 +129,9 @@
     <PackageReference Include="Caliburn.Micro">
       <Version>4.0.136-rc</Version>
     </PackageReference>
+    <PackageReference Include="gong-wpf-dragdrop">
+      <Version>2.2.0</Version>
+    </PackageReference>
     <PackageReference Include="Ninject">
       <Version>4.0.0-beta-0134</Version>
     </PackageReference>
@@ -120,6 +139,20 @@
   <ItemGroup>
     <Folder Include="Resources\" />
     <Folder Include="UserInterface\Tabs\Notes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AudioGeneration\AudioGeneration.csproj">
+      <Project>{31fb4c07-5d36-4bdd-9a59-2dbe8cd817a0}</Project>
+      <Name>AudioGeneration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">
+      <Project>{e3aa93d0-b464-4b19-a0ba-873f9de4f4c0}</Project>
+      <Name>BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{B9F3C736-5DEB-4221-9977-5AAA2044AE5C}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

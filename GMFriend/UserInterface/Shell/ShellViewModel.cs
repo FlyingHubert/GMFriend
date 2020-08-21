@@ -1,5 +1,6 @@
 ﻿using Caliburn.Micro;
 
+using GMFriend.DependencyInjection;
 using GMFriend.UserInterface.Tabs.Music;
 
 using System;
@@ -16,7 +17,7 @@ namespace GMFriend.UserInterface.Shell
     {
         public ShellViewModel()
         {
-            Items.Add(new MusicViewModel());
+            Items.Add(DI.Get<MusicViewModel>());
         }
     }
 }

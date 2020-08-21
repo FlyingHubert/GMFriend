@@ -1,4 +1,8 @@
-﻿using Ninject.Modules;
+﻿using DataAccess;
+
+using GMFriend.UserInterface.Tabs.Music;
+
+using Ninject.Modules;
 
 using System;
 using System.Collections.Generic;
@@ -12,6 +16,10 @@ namespace GMFriend.DependencyInjection
     {
         public override void Load()
         {
+            Bind<IFileService>().To<JsonFileService>();
+            Bind<ISetting>().To<Settings>();
+            Bind<IMusicSource>().To<ConfigMusicSource>();
+            Bind<MusicViewModel>().ToSelf();
         }
     }
 }

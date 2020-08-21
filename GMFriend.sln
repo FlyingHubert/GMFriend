@@ -7,9 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GMFriend", "GMFriend\GMFrie
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "source", "source", "{92C49AA8-9F5A-4612-87B0-B557A09EE0DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{E3AA93D0-B464-4B19-A0BA-873F9DE4F4C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{E3AA93D0-B464-4B19-A0BA-873F9DE4F4C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{B9F3C736-5DEB-4221-9977-5AAA2044AE5C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{B9F3C736-5DEB-4221-9977-5AAA2044AE5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioGeneration", "AudioGeneration\AudioGeneration.csproj", "{31FB4C07-5D36-4BDD-9A59-2DBE8CD817A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{B9F3C736-5DEB-4221-9977-5AAA2044AE5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9F3C736-5DEB-4221-9977-5AAA2044AE5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9F3C736-5DEB-4221-9977-5AAA2044AE5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31FB4C07-5D36-4BDD-9A59-2DBE8CD817A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31FB4C07-5D36-4BDD-9A59-2DBE8CD817A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31FB4C07-5D36-4BDD-9A59-2DBE8CD817A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31FB4C07-5D36-4BDD-9A59-2DBE8CD817A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,6 +42,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{E3AA93D0-B464-4B19-A0BA-873F9DE4F4C0} = {92C49AA8-9F5A-4612-87B0-B557A09EE0DA}
 		{B9F3C736-5DEB-4221-9977-5AAA2044AE5C} = {92C49AA8-9F5A-4612-87B0-B557A09EE0DA}
+		{31FB4C07-5D36-4BDD-9A59-2DBE8CD817A0} = {92C49AA8-9F5A-4612-87B0-B557A09EE0DA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8EEE1001-147F-488B-8699-A0DA6578E643}
