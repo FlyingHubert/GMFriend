@@ -51,7 +51,7 @@ namespace GMFriend.UserInterface.Tabs.Music
         public void Drop(IDropInfo dropInfo)
         {
             var entity = dropInfo.Data as MusicEntity;
-            var track = TrackPlayingManager.Load(entity.Path);
+            var track = TrackPlayingManager.Load(entity.Path, entity.Title);
             var viewModel = new PlayerViewModel(track);
             viewModel.RemoveThis += (s, a) => PlayableMusic.Remove(s as PlayerViewModel);
             PlayableMusic.Add(viewModel);

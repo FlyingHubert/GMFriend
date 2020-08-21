@@ -24,11 +24,11 @@ namespace AudioGeneration.PublicInterface
             ((IDisposable)OutputDevice).Dispose();
         }
 
-        public static Track Load(string filename)
+        public static Track Load(string filename, string title = null)
         {
             if (File.Exists(filename))
             {
-                var track = new Track(filename);
+                var track = new Track(filename, title);
                 SampleProvider.Add(track);
                 return track;
             }

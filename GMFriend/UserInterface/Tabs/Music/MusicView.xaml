@@ -31,9 +31,10 @@
         <Button x:Name="AddNewMusic" Grid.Row="2" Grid.Column="0"
                 Content="Hinzufügen..." />
 
-        <ListView x:Name="PlayableMusic" Grid.Row="0" Grid.Column="1" Grid.RowSpan="3"
+        <ListBox x:Name="PlayableMusic" Grid.Row="0" Grid.Column="1" Grid.RowSpan="3"
                   gong:DragDrop.IsDropTarget="True"
-                  gong:DragDrop.DropHandler="{Binding}">
-        </ListView>
+                  gong:DragDrop.DropHandler="{Binding}"
+                  HorizontalContentAlignment="Stretch">
+        </ListBox>
     </Grid>
 </UserControl>

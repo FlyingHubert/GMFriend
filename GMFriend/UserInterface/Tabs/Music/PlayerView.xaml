@@ -20,7 +20,7 @@
 
         <TextBlock Text="{Binding Title}" Grid.Row="0" />
 
-        <Slider Name="CurrentTime" Grid.Row="1"
+        <Slider Name="CurrentTime" Grid.Row="1" Grid.ColumnSpan="2"
                      Minimum="0" Value="{Binding CurrentTime}" Maximum="{Binding TotalTime}" />
 
         <Slider Value="{Binding Volume}" Grid.Row="2" Grid.ColumnSpan="2"
