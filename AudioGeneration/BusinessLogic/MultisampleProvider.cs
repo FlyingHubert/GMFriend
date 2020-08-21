@@ -1,7 +1,10 @@
-﻿using NAudio.Wave;
+﻿using AudioGeneration.PublicInterface;
+
+using NAudio.Wave;
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
@@ -25,6 +28,8 @@ namespace AudioGeneration.BusinessLogic
                 throw new IOException("The given ISampleProvider WaveFormat doesn't match the expected WaveFormat. Can't add it therefore!");
             lock (Sources)
             {
+                if (source is IInitializable initializable)
+                    initializable.Initialize();
                 Sources.Add(source);
             }
         }
@@ -67,7 +72,10 @@ namespace AudioGeneration.BusinessLogic
 
         private void FillBufferWithProviderData(float[] buffer, int offset, int count, ISampleProvider dataProvider)
         {
+            Console.WriteLine($"VORHER - {dataProvider}");
+            var sw = Stopwatch.StartNew();
             dataProvider.Read(buffer, offset, count);
+            Console.WriteLine($"NACHHER - {dataProvider} - {sw.ElapsedMilliseconds}");
         }
 
         private bool WaveFormatsAreNotEqual(WaveFormat sourceWaveFormat, WaveFormat newWaveFormat)

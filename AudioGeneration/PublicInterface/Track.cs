@@ -13,7 +13,7 @@ namespace AudioGeneration.PublicInterface
     /// the package. Just instantiate or get it from a music folder. This class offers a nice set of
     /// methods to play and fade music files.
     /// </summary>
-    public class Track : ISampleProvider
+    public class Track : ISampleProvider, IInitializable
     {
         internal Track(string filename, string title = null)
         {
@@ -31,6 +31,7 @@ namespace AudioGeneration.PublicInterface
         }
 
         public bool IsPlaying => Stopper.Play;
+
         public string Title { get; }
 
         public TimeSpan TotalTime => Reader.TotalTime;
@@ -42,9 +43,17 @@ namespace AudioGeneration.PublicInterface
         }
 
         public WaveFormat WaveFormat => Fader.WaveFormat;
+
         private AudioFader Fader { get; }
+
         private AudioFileReaderLazy Reader { get; }
+
         private AudioStopper Stopper { get; }
+
+        public void Initialize()
+        {
+            Reader.Read(new float[0], 0, 0);
+        }
 
         public void Pause()
         {

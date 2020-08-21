@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="BusinessLogic\AudioFileReaderLazy.cs" />
     <Compile Include="BusinessLogic\AudioPauser.cs" />
+    <Compile Include="PublicInterface\IInitializable.cs" />
     <Compile Include="PublicInterface\TrackPlayingManager.cs" />
     <Compile Include="BusinessLogic\Fading\FadingEventArgs.cs" />
     <Compile Include="BusinessLogic\Fading\AudioFader.cs" />
