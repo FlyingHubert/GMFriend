@@ -1,9 +1,12 @@
-﻿using System;
+﻿using DataAccess.FileService;
+using DataAccess.Settings;
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace DataAccess
+namespace DataAccess.Music
 {
     public class ConfigMusicSource : IMusicSource
     {

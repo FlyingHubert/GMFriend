@@ -1,6 +1,7 @@
 ﻿using Caliburn.Micro;
 
-using DataAccess;
+using DataAccess.Music;
+using DataAccess.Settings;
 
 using Microsoft.Win32;
 

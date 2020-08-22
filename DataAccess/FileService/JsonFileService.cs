@@ -1,13 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using DataAccess.Notes.Group;
 
-using System;
-using System.Collections.Generic;
+using Newtonsoft.Json;
+
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DataAccess
+namespace DataAccess.FileService
 {
     public class JsonFileService : IFileService
     {
@@ -22,7 +19,7 @@ namespace DataAccess
 
             var json = File.ReadAllText(path);
 
-            var result = JsonConvert.DeserializeObject<T>(json);
+            var result = JsonConvert.DeserializeObject<T>(json, new JsonINoteConverter());
 
             return result;
         }

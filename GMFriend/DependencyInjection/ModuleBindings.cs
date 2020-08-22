@@ -1,17 +1,14 @@
 ﻿using BusinessLogic.Notes.Markdown;
 
-using DataAccess;
+using DataAccess.FileService;
+using DataAccess.Music;
+using DataAccess.Settings;
 
+using GMFriend.Properties;
 using GMFriend.UserInterface.Tabs.Music;
 using GMFriend.UserInterface.Tabs.Notes;
 
 using Ninject.Modules;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GMFriend.DependencyInjection
 {
@@ -20,7 +17,7 @@ namespace GMFriend.DependencyInjection
         public override void Load()
         {
             Bind<IFileService>().To<JsonFileService>();
-            Bind<ISetting>().To<Settings>();
+            Bind<ISetting>().To<ConstantSetting>();
             Bind<IMusicSource>().To<ConfigMusicSource>();
             Bind<MusicViewModel>().ToSelf();
             Bind<NotesViewModel>().ToSelf();
