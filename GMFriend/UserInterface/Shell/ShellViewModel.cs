@@ -2,6 +2,7 @@
 
 using GMFriend.DependencyInjection;
 using GMFriend.UserInterface.Tabs.Music;
+using GMFriend.UserInterface.Tabs.Notes;
 
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace GMFriend.UserInterface.Shell
         public ShellViewModel()
         {
             Items.Add(DI.Get<MusicViewModel>());
+            Items.Add(DI.Get<NotesViewModel>());
         }
     }
 }

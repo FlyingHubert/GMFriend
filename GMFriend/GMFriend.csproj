@@ -74,6 +74,13 @@
       <DependentUpon>PlayerView.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserInterface\Tabs\Music\PlayerViewModel.cs" />
+    <Compile Include="UserInterface\Tabs\Notes\MarkdownView.xaml.cs">
+      <DependentUpon>MarkdownView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\Tabs\Notes\NotesView.xaml.cs">
+      <DependentUpon>NotesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\Tabs\Notes\NotesViewModel.cs" />
     <Page Include="Styles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -95,6 +102,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserInterface\Tabs\Music\PlayerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\Tabs\Notes\MarkdownView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\Tabs\Notes\NotesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -136,10 +151,7 @@
       <Version>4.0.0-beta-0134</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-    <Folder Include="UserInterface\Tabs\Notes\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\AudioGeneration\AudioGeneration.csproj">
       <Project>{31fb4c07-5d36-4bdd-9a59-2dbe8cd817a0}</Project>
@@ -153,6 +165,9 @@
       <Project>{B9F3C736-5DEB-4221-9977-5AAA2044AE5C}</Project>
       <Name>DataAccess</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\markdown.css" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
