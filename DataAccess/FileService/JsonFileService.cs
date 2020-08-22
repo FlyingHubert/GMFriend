@@ -2,7 +2,9 @@
 
 using Newtonsoft.Json;
 
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace DataAccess.FileService
 {
@@ -10,7 +12,9 @@ namespace DataAccess.FileService
     {
         public T Get<T>(string path, T def = null) where T : class
         {
-            if (!File.Exists(path))
+            if (!File.Exists(path)
+                || string.IsNullOrEmpty(File.ReadAllText(path))
+                || File.ReadAllText(path) == "null")
             {
                 Directory.CreateDirectory(Path.GetDirectoryName(path));
                 var jsonToSerialize = JsonConvert.SerializeObject(def);
@@ -22,6 +26,11 @@ namespace DataAccess.FileService
             var result = JsonConvert.DeserializeObject<T>(json, new JsonINoteConverter());
 
             return result;
+        }
+
+        public IEnumerable<T> GetEnumerable<T>(string path) where T : class
+        {
+            return Get(path, Enumerable.Empty<T>());
         }
 
         public void Update<T>(string path, T value) where T : class

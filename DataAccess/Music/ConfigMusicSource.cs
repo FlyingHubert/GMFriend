@@ -21,7 +21,7 @@ namespace DataAccess.Music
 
         public event EventHandler MusicChanged;
 
-        public IEnumerable<MusicEntity> AvaiableMusic => from item in fileService.Get(settings.MusicConfigPath, Enumerable.Empty<MusicEntity>())
+        public IEnumerable<MusicEntity> AvaiableMusic => from item in fileService.GetEnumerable<MusicEntity>(settings.MusicConfigPath)
                                                          where File.Exists(item.Path)
                                                          select item;
 

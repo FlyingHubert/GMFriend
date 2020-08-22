@@ -1,4 +1,5 @@
-﻿using BusinessLogic.Notes.Markdown;
+﻿using BusinessLogic;
+using BusinessLogic.Notes.Markdown;
 
 using DataAccess.FileService;
 using DataAccess.Music;
@@ -22,6 +23,7 @@ namespace GMFriend.DependencyInjection
             Bind<MusicViewModel>().ToSelf();
             Bind<NotesViewModel>().ToSelf();
             Bind<IMarkdownService>().To<MarkdownService>();
+            Bind<INoteService>().To<NoteService>();
         }
     }
 }

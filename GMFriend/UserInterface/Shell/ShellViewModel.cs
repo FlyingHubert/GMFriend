@@ -1,6 +1,7 @@
 ﻿using Caliburn.Micro;
 
 using GMFriend.DependencyInjection;
+using GMFriend.UserInterface.Dialogs.Startup;
 using GMFriend.UserInterface.Tabs.Music;
 using GMFriend.UserInterface.Tabs.Notes;
 

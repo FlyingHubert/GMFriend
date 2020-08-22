@@ -2,7 +2,7 @@
 {
     public class ConstantSetting : ISetting
     {
-        public string GroupFilesPath => @".\groups\";
+        public string GroupFilePath => @".\groups.json";
         public string MusicConfigPath => @".\settings\musicEntries.json";
 
         public string MusicFilePath => @".\music\";

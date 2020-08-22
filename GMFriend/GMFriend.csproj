@@ -62,6 +62,10 @@
       <DependentUpon>AddMusicView.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserInterface\Dialogs\AddMusic\AddMusicViewModel.cs" />
+    <Compile Include="UserInterface\Dialogs\Startup\StartupView.xaml.cs">
+      <DependentUpon>StartupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\Dialogs\Startup\StartupViewModel.cs" />
     <Compile Include="UserInterface\Shell\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
     </Compile>
@@ -81,6 +85,10 @@
       <DependentUpon>NotesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserInterface\Tabs\Notes\NotesViewModel.cs" />
+    <Compile Include="UserInterface\Tabs\Notes\Text\TextNoteView.xaml.cs">
+      <DependentUpon>TextNoteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\Tabs\Notes\Text\TextNoteViewModel.cs" />
     <Page Include="Styles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -90,6 +98,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="UserInterface\Dialogs\AddMusic\AddMusicView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\Dialogs\Startup\StartupView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -110,6 +122,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserInterface\Tabs\Notes\NotesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\Tabs\Notes\Text\TextNoteView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
