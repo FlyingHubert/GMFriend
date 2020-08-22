@@ -6,8 +6,14 @@ namespace BusinessLogic
 {
     public interface INoteService
     {
-        IEnumerable<Group> LoadGroups();
-        void SetCurrentGroup(Group selectedGroup);
+        IEnumerable<Chapter> Chapters { get; }
+
+        void AddChapter(Chapter chapter);
+
         void AddNewGroup(Group group);
+
+        IEnumerable<Group> LoadGroups();
+
+        void SetCurrentGroup(Group selectedGroup);
     }
 }

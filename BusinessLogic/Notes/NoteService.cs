@@ -21,7 +21,13 @@ namespace BusinessLogic
             this.fileService = fileService;
         }
 
+        public IEnumerable<Chapter> Chapters => CurrentGroup?.Chapters ?? Enumerable.Empty<Chapter>();
         public Group CurrentGroup { get; private set; }
+
+        public void AddChapter(Chapter chapter)
+        {
+            throw new NotImplementedException();
+        }
 
         public void AddNewGroup(Group group)
         {

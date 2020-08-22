@@ -2,6 +2,7 @@
 {
     public interface INote
     {
-        string Type { get; set; }
+        string Title { get; }
+        string Type { get; }
     }
 }

@@ -78,7 +78,12 @@
       <DependentUpon>PlayerView.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserInterface\Tabs\Music\PlayerViewModel.cs" />
-    <Compile Include="UserInterface\Tabs\Notes\MarkdownView.xaml.cs">
+    <Compile Include="UserInterface\Tabs\Notes\ChapterView.xaml.cs">
+      <DependentUpon>ChapterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserInterface\Tabs\Notes\ChapterViewModel.cs" />
+    <Compile Include="UserInterface\Tabs\Notes\NoteViewModel.cs" />
+    <Compile Include="UserInterface\Tabs\Notes\Text\MarkdownView.xaml.cs">
       <DependentUpon>MarkdownView.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserInterface\Tabs\Notes\NotesView.xaml.cs">
@@ -117,7 +122,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserInterface\Tabs\Notes\MarkdownView.xaml">
+    <Page Include="UserInterface\Tabs\Notes\ChapterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserInterface\Tabs\Notes\Text\MarkdownView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

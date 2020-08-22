@@ -1,6 +1,9 @@
-﻿using BusinessLogic.Notes.Markdown;
+﻿using BusinessLogic;
+using BusinessLogic.Notes.Markdown;
 
 using Caliburn.Micro;
+
+using DataAccess.Notes.Group;
 
 using System;
 using System.Collections.Generic;
@@ -13,69 +16,22 @@ namespace GMFriend.UserInterface.Tabs.Notes
 {
     public class NotesViewModel : Screen
     {
-        private readonly IMarkdownService markdownService;
-        private string input;
-        private string output;
-        private Visibility showInput = Visibility.Visible;
-        private Visibility showOutput = Visibility.Collapsed;
+        private readonly INoteService noteService;
 
-        public NotesViewModel(IMarkdownService markdownService)
+        public NotesViewModel(INoteService noteService)
         {
-            DisplayName = "Notizen";
-            this.markdownService = markdownService;
+            this.noteService = noteService;
+            Chapters = new BindableCollection<ChapterViewModel>(from chapter in noteService.Chapters
+                                                                select new ChapterViewModel(chapter));
         }
 
-        public string Input
-        {
-            get => input;
-            set
-            {
-                input = value;
-                Output = markdownService.ToStyledHTML(input);
-                NotifyOfPropertyChange();
-            }
-        }
+        public BindableCollection<ChapterViewModel> Chapters { get; }
 
-        public string Output
+        public void OnAddChapter()
         {
-            get => output;
-            set
-            {
-                output = value;
-                NotifyOfPropertyChange();
-            }
-        }
+            throw new NotImplementedException();
 
-        public Visibility ShowInput
-        {
-            get => showInput;
-            private set
-            {
-                showInput = value;
-                NotifyOfPropertyChange();
-            }
-        }
-
-        public Visibility ShowOutput
-        {
-            get => showOutput;
-            private set
-            {
-                showOutput = value;
-                NotifyOfPropertyChange();
-            }
-        }
-
-        public void OnDisplay()
-        {
-            ShowInput = Visibility.Collapsed;
-            ShowOutput = Visibility.Visible;
-        }
-
-        public void OnEdit()
-        {
-            ShowInput = Visibility.Visible;
-            ShowOutput = Visibility.Collapsed;
+            noteService.AddChapter(new Chapter());
         }
     }
 }

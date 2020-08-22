@@ -8,6 +8,7 @@ using DataAccess.Settings;
 using GMFriend.Properties;
 using GMFriend.UserInterface.Tabs.Music;
 using GMFriend.UserInterface.Tabs.Notes;
+using GMFriend.UserInterface.Tabs.Notes.Text;
 
 using Ninject.Modules;
 
@@ -24,6 +25,7 @@ namespace GMFriend.DependencyInjection
             Bind<NotesViewModel>().ToSelf();
             Bind<IMarkdownService>().To<MarkdownService>();
             Bind<INoteService>().To<NoteService>();
+            Bind<TextNoteViewModel>().ToSelf();
         }
     }
 }
