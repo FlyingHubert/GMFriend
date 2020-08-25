@@ -56,7 +56,7 @@ namespace GMFriend.UserInterface.Dialogs.AddMusic
             var fileInfo = new FileInfo(Path);
             var targetFileName = System.IO.Path.Combine(settings.MusicFilePath, fileInfo.Name);
             Directory.CreateDirectory(settings.MusicFilePath);
-            File.Copy(fileInfo.FullName, targetFileName);
+            File.Copy(fileInfo.FullName, targetFileName, true);
 
             var entity = new MusicEntity(Title, targetFileName);
             musicSource.AddMusic(entity);

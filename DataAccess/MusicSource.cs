@@ -5,26 +5,27 @@ using System.Linq;
 
 namespace DataAccess
 {
-    public class ConfigMusicSource : IMusicSource
+    public class MusicSource : IMusicSource
     {
-        private readonly IFileService fileService;
+        private readonly IPersistenceService persistence;
         private readonly ISetting settings;
 
-        public ConfigMusicSource(ISetting settings, IFileService fileService)
+        public MusicSource(ISetting settings, IPersistenceService persistence)
         {
-            this.fileService = fileService;
+            this.persistence = persistence;
             this.settings = settings;
         }
 
         public event EventHandler MusicChanged;
 
-        public IEnumerable<MusicEntity> AvaiableMusic => from item in fileService.Get(settings.MusicConfigPath, Enumerable.Empty<MusicEntity>())
+        public IEnumerable<MusicEntity> AvaiableMusic => from item in persistence.GetCollection<MusicEntity>(settings.MusicEntriesKey)
                                                          where File.Exists(item.Path)
                                                          select item;
 
         public void AddMusic(MusicEntity entity)
         {
-            fileService.Update(settings.MusicConfigPath, AvaiableMusic.Append(entity));
+            persistence.AddToCollection(settings.MusicEntriesKey, entity);
+            MusicChanged?.Invoke(this, EventArgs.Empty);
         }
     }
 }

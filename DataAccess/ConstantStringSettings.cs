@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    public class Settings : ISetting
+    public class ConstantStringSettings : ISetting
     {
-        public string MusicConfigPath => @".\settings\musicEntries.json";
+        public string MusicEntriesKey => "musicEntries";
 
         public string MusicFilePath => @".\music\";
     }

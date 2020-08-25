@@ -16,9 +16,10 @@ namespace GMFriend.DependencyInjection
     {
         public override void Load()
         {
-            Bind<IFileService>().To<JsonFileService>();
-            Bind<ISetting>().To<Settings>();
-            Bind<IMusicSource>().To<ConfigMusicSource>();
+            Bind<IPersistenceService>().To<SimplePersistenceService>();
+            Bind<JsonFileService>().ToSelf();
+            Bind<ISetting>().To<ConstantStringSettings>();
+            Bind<IMusicSource>().To<MusicSource>();
             Bind<MusicViewModel>().ToSelf();
         }
     }

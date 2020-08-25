@@ -2,7 +2,7 @@
 {
     public interface ISetting
     {
-        string MusicConfigPath { get; }
+        string MusicEntriesKey { get; }
         string MusicFilePath { get; }
     }
 }

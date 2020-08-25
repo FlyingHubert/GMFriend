@@ -9,28 +9,52 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    public class JsonFileService : IFileService
+    public class JsonFileService
     {
-        public T Get<T>(string path, T def = null) where T : class
+        private readonly string fileName;
+
+        public JsonFileService(string fileName = "settings.json")
         {
-            if (!File.Exists(path))
+            this.fileName = fileName;
+        }
+
+        public T Get<T>(string key)
+        {
+            if (!File.Exists(fileName))
             {
-                Directory.CreateDirectory(Path.GetDirectoryName(path));
-                var jsonToSerialize = JsonConvert.SerializeObject(def);
-                File.WriteAllText(path, jsonToSerialize);
+                var dir = Path.GetDirectoryName(fileName);
+                if (!string.IsNullOrEmpty(dir))
+                {
+                    Directory.CreateDirectory(dir);
+                }
+
+                var jsonToSerialize = JsonConvert.SerializeObject(new Dictionary<string, object>());
+                File.WriteAllText(fileName, jsonToSerialize);
             }
 
-            var json = File.ReadAllText(path);
+            var dict = ReadDictFromJson();
 
-            var result = JsonConvert.DeserializeObject<T>(json);
+            return (T)dict[key];
+        }
 
+        public void Update<T>(string key, T value)
+        {
+            var dict = ReadDictFromJson();
+            dict[key] = value;
+            WriteDictToJson(dict);
+        }
+
+        private Dictionary<string, object> ReadDictFromJson()
+        {
+            var json = File.ReadAllText(fileName);
+            var result = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
             return result;
         }
 
-        public void Update<T>(string path, T value) where T : class
+        private void WriteDictToJson(Dictionary<string, object> dict)
         {
-            var json = JsonConvert.SerializeObject(value, Formatting.Indented);
-            File.WriteAllText(path, json);
+            var json = JsonConvert.SerializeObject(dict, Formatting.Indented);
+            File.WriteAllText(fileName, json);
         }
     }
 }

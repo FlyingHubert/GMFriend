@@ -26,8 +26,7 @@ namespace GMFriend.UserInterface.Tabs.Music
         {
             DisplayName = "Musik";
             this.musicSource = musicSource;
-
-            musicSource.MusicChanged += OnMusicChanged;
+            OnMusicChanged();
         }
 
         public IEnumerable<MusicEntity> AvailableMusic => musicSource.AvaiableMusic;
@@ -41,6 +40,8 @@ namespace GMFriend.UserInterface.Tabs.Music
             var viewModel = DI.Get<AddMusicViewModel>();
 
             await wm.ShowDialogAsync(viewModel);
+
+            OnMusicChanged();
         }
 
         public void DragOver(IDropInfo dropInfo)
@@ -57,7 +58,7 @@ namespace GMFriend.UserInterface.Tabs.Music
             PlayableMusic.Add(viewModel);
         }
 
-        public void OnMusicChanged(object sender, EventArgs args)
+        public void OnMusicChanged(object sender = null, EventArgs args = null)
         {
             NotifyOfPropertyChange(nameof(AvailableMusic));
         }
