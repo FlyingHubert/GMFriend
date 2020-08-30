@@ -1,13 +1,12 @@
-﻿using Newtonsoft.Json;
+﻿using DataAccess.Notes.Group;
 
-using System;
+using Newtonsoft.Json;
+
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DataAccess
+namespace DataAccess.FileService
 {
     public class JsonFileService
     {

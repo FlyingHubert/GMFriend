@@ -1,14 +1,16 @@
-﻿using DataAccess;
+﻿using BusinessLogic;
+using BusinessLogic.Notes.Markdown;
 
+using DataAccess.FileService;
+using DataAccess.Music;
+using DataAccess.Settings;
+
+using GMFriend.Properties;
 using GMFriend.UserInterface.Tabs.Music;
+using GMFriend.UserInterface.Tabs.Notes;
+using GMFriend.UserInterface.Tabs.Notes.Text;
 
 using Ninject.Modules;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GMFriend.DependencyInjection
 {
@@ -21,6 +23,10 @@ namespace GMFriend.DependencyInjection
             Bind<ISetting>().To<ConstantStringSettings>();
             Bind<IMusicSource>().To<MusicSource>();
             Bind<MusicViewModel>().ToSelf();
+            Bind<NotesViewModel>().ToSelf();
+            Bind<IMarkdownService>().To<MarkdownService>();
+            Bind<INoteService>().To<NoteService>();
+            Bind<TextNoteViewModel>().ToSelf();
         }
     }
 }

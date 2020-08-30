@@ -2,7 +2,7 @@
 
 using Caliburn.Micro;
 
-using DataAccess;
+using DataAccess.Music;
 
 using GMFriend.DependencyInjection;
 using GMFriend.UserInterface.Dialogs.AddMusic;

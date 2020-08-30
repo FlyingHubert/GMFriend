@@ -72,10 +72,7 @@ namespace AudioGeneration.BusinessLogic
 
         private void FillBufferWithProviderData(float[] buffer, int offset, int count, ISampleProvider dataProvider)
         {
-            Console.WriteLine($"VORHER - {dataProvider}");
-            var sw = Stopwatch.StartNew();
             dataProvider.Read(buffer, offset, count);
-            Console.WriteLine($"NACHHER - {dataProvider} - {sw.ElapsedMilliseconds}");
         }
 
         private bool WaveFormatsAreNotEqual(WaveFormat sourceWaveFormat, WaveFormat newWaveFormat)

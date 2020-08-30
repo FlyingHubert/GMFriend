@@ -1,5 +1,7 @@
 ﻿using Caliburn.Micro;
 
+using GMFriend.DependencyInjection;
+using GMFriend.UserInterface.Dialogs.Startup;
 using GMFriend.UserInterface.Shell;
 
 using System;
@@ -18,9 +20,16 @@ namespace GMFriend
             Initialize();
         }
 
-        protected override void OnStartup(object sender, StartupEventArgs e)
+        protected override async void OnStartup(object sender, StartupEventArgs e)
         {
-            DisplayRootViewFor<ShellViewModel>();
+            await DisplayRootViewFor<ShellViewModel>();
+            await ShowStartUpDialog();
+        }
+
+        private async Task ShowStartUpDialog()
+        {
+            var wm = new WindowManager();
+            await wm.ShowDialogAsync(DI.Get<StartupViewModel>());
         }
     }
 }

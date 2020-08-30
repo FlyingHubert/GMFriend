@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DataAccess
+namespace DataAccess.Music
 {
     public interface IMusicSource
     {

@@ -1,4 +1,4 @@
-﻿namespace DataAccess
+﻿namespace DataAccess.Settings
 {
     public interface ISetting
     {
