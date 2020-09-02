@@ -4,5 +4,6 @@
     {
         string MusicEntriesKey { get; }
         string MusicFilePath { get; }
+        string GroupEntriesKey { get;  }
     }
 }

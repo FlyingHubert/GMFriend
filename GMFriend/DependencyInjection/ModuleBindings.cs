@@ -1,6 +1,7 @@
 ﻿using BusinessLogic;
 using BusinessLogic.Notes.Markdown;
 
+using DataAccess;
 using DataAccess.FileService;
 using DataAccess.Music;
 using DataAccess.Settings;
@@ -20,7 +21,7 @@ namespace GMFriend.DependencyInjection
         {
             Bind<IPersistenceService>().To<SimplePersistenceService>();
             Bind<JsonFileService>().ToSelf();
-            Bind<ISetting>().To<ConstantStringSettings>();
+            Bind<ISetting>().To<ConstantSetting>();
             Bind<IMusicSource>().To<MusicSource>();
             Bind<MusicViewModel>().ToSelf();
             Bind<NotesViewModel>().ToSelf();

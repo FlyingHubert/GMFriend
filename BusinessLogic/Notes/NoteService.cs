@@ -1,4 +1,5 @@
-﻿using DataAccess.FileService;
+﻿using DataAccess;
+using DataAccess.FileService;
 using DataAccess.Notes.Group;
 using DataAccess.Settings;
 
@@ -12,13 +13,14 @@ namespace BusinessLogic
 {
     public class NoteService : INoteService
     {
-        private readonly IFileService fileService;
+        private readonly IPersistenceService persistence;
+
         private readonly ISetting setting;
 
-        public NoteService(ISetting setting, IFileService fileService)
+        public NoteService(ISetting setting, IPersistenceService persistence)
         {
             this.setting = setting;
-            this.fileService = fileService;
+            this.persistence = persistence;
         }
 
         public IEnumerable<Chapter> Chapters => CurrentGroup?.Chapters ?? Enumerable.Empty<Chapter>();
@@ -31,14 +33,12 @@ namespace BusinessLogic
 
         public void AddNewGroup(Group group)
         {
-            var newGroups = fileService.GetEnumerable<Group>(setting.GroupFilePath)
-                                       .Append(group);
-            fileService.Update(setting.GroupFilePath, newGroups);
+            persistence.AddToCollection(setting.GroupEntriesKey, group);
         }
 
         public IEnumerable<Group> LoadGroups()
         {
-            return fileService.GetEnumerable<Group>(setting.GroupFilePath);
+            return persistence.GetCollection<Group>(setting.GroupEntriesKey);
         }
 
         public void SetCurrentGroup(Group selectedGroup)
