@@ -23,6 +23,8 @@ namespace GMFriend.UserInterface.Dialogs.AddMusic
         public AddMusicView()
         {
             InitializeComponent();
+
+            Title.Focus();
         }
     }
 }

@@ -4,9 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:GMFriend.UserInterface.Dialogs.AddMusic"
-             mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="500" MinHeight="300" MinWidth="500">
-    <Grid>
+             mc:Ignorable="d" MinWidth="600">
+    <Grid Margin="15">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
@@ -16,21 +15,33 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="5*" />
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Titel" Grid.Row="0" />
-        <TextBox x:Name="Title" Grid.Row="0" Grid.Column="1" 
-                 Text="{Binding Title}"/>
+        <TextBlock Text="Titel" Grid.Row="0" TextAlignment="Center" FontSize="16" VerticalAlignment="Center" />
+        <TextBox x:Name="Title" Grid.Row="0" Grid.Column="1" TextAlignment="Center"
+                 Text="{Binding Title}" FontSize="16" Margin="5" BorderBrush="{x:Null}" Background="#FFAAAAAB" Padding="2"/>
 
-        <TextBlock Text="Pfad" Grid.Row="1" />
-        <TextBox x:Name="Path" Grid.Row="1" Grid.Column="1" 
-                 Text="{Binding Path}"/>
-        <Button Name="SelectPath" Grid.Row="2" Grid.Column="1" Content="Pfad auswählen..." />
+        <TextBlock Text="Pfad" Grid.Row="1" TextAlignment="Center" FontSize="16" VerticalAlignment="Center" />
 
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="Path" Grid.Column="0"
+                 Text="{Binding Path}" FontSize="16" Margin="5" BorderBrush="{x:Null}" Background="#FFAAAAAB" Padding="2"/>
+            <Button Name="SelectPath" Grid.Column="1" FontSize="16" Margin="0,5,5,5" BorderBrush="{x:Null}">
+                <Button.Content>
+                    <Image Source="/Images/folder-plus.png" Height="20" SnapsToDevicePixels="True"/>
+                </Button.Content>
+            </Button>
+        </Grid>
+        
         <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button x:Name="Abort" Content="Abbrechen" MinWidth="70" />
-            <Button x:Name="Ok" Content="OK" MinWidth="70" />
+            <Button x:Name="OnAbort" Content="Abbrechen" MinWidth="70" FontSize="18" Margin="5" Padding="10" BorderBrush="{x:Null}" />
+            <Button x:Name="OnOk" Content="Hinzufügen" MinWidth="70" FontSize="18" Margin="5" Padding="10" BorderBrush="{x:Null}" />
         </StackPanel>
+        <ToolBarPanel Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="568,-91,-193,0" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </UserControl>

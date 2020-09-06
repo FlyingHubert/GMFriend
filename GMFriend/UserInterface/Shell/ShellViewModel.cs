@@ -20,7 +20,7 @@ namespace GMFriend.UserInterface.Shell
         public ShellViewModel()
         {
             Items.Add(DI.Get<MusicViewModel>());
-            Items.Add(DI.Get<NotesViewModel>());
+            // Items.Add(DI.Get<NotesViewModel>());
         }
     }
 }

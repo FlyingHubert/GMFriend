@@ -27,6 +27,8 @@ namespace GMFriend.UserInterface.Dialogs.AddMusic
             this.musicSource = musicSource;
             this.settings = settings;
 
+            DisplayName = "Musik hinzufügen";
+
             PropertyChanged += OnPropertyChanged;
         }
 
@@ -52,7 +54,7 @@ namespace GMFriend.UserInterface.Dialogs.AddMusic
             }
         }
 
-        public async void OK()
+        public async void OnOK()
         {
             var fileInfo = new FileInfo(Path);
             var targetFileName = System.IO.Path.Combine(settings.MusicFilePath, fileInfo.Name);
@@ -63,6 +65,11 @@ namespace GMFriend.UserInterface.Dialogs.AddMusic
             musicSource.AddMusic(entity);
 
             await TryCloseAsync(true);
+        }
+
+        public async void OnAbort()
+        {
+            await TryCloseAsync(false);
         }
 
         public void SelectPath()
